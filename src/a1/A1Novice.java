@@ -9,6 +9,7 @@ public class A1Novice {
 		Scanner scan = new Scanner(System.in);
 
 		// Your code follows here.
+		
 		int num_of_customers = scan.nextInt();
 		
 		// Insert a for loop so this iterates for each customer
@@ -32,7 +33,7 @@ public class A1Novice {
 			}
 			// Insert a print function such that it prints out each customers instances of the variables
 			// so it can iterate through using the same variables printing all of its values
-			System.out.println(customer_first_initial + ". " + customer_last_name + ": " + specific_cust_tot_price);
+			System.out.println(customer_first_initial + ". " + customer_last_name + ": " + String.format("%.2f", specific_cust_tot_price));
 		
 		}	
 	}
