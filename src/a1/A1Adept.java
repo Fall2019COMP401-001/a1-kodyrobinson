@@ -62,9 +62,9 @@ public class A1Adept {
 			list_of_total_prices = append(list_of_total_prices, String.format("%.2f", cust_total_price));
 			
 		}
-		System.out.println(items.toString());
-		System.out.println(cust_names_and_totals.toString());
-		System.out.println(list_of_total_prices.toString());
+		System.out.println(Arrays.toString(items));
+		System.out.println(Arrays.toString(cust_names_and_totals));
+		System.out.println(Arrays.toString(list_of_total_prices));
 		// delete these scanners and heavily review the following code
 		
 	
