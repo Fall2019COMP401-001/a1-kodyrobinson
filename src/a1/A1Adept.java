@@ -39,7 +39,7 @@ public class A1Adept {
 				int num_of_specific_item = scan.nextInt();
 				String specific_item = scan.next();
 				int price_index = items.indexOf(specific_item) + specific_item.length();
-				String price_of_specific_item = items.substring(price_index, price_index + 5);
+				String price_of_specific_item = items.substring(price_index, price_index + 6);
 				Scanner scan_price = new Scanner(price_of_specific_item);
 				double price = scan_price.nextDouble();
 				double item_tot_price = num_of_specific_item * price;
