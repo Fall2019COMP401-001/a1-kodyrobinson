@@ -17,13 +17,33 @@ public class A1Adept {
 		// Insert a for loop to iterate through all the items, storing the names as strings and their prices
 		for (int i = 0; i < num_of_store_items; i++) {
 			String item_name = scan.next();
-			String item_price = scan.next();
-			items = items + item_name + " " + item_price + " ";
-			
-			
+			double item_price = scan.nextDouble();
+			items = items + item_name + String.format("%.3f", item_price);
+		}
+		int num_of_customers = scan.nextInt();
+		
+		String cust_names_and_totals = "";
+		
+		for (int i = 0; i < num_of_customers; i++) {
+			String specific_cust_first = scan.next();
+			String specific_cust_last = scan.next();
+			cust_names_and_totals = cust_names_and_totals + specific_cust_first + " " + specific_cust_last + " ";
+			int num_of_items = scan.nextInt();
+			double cust_total_price = 0.0;
+			for (int j = 0; j < num_of_items; j++) {
+				int num_of_specific_item = scan.nextInt();
+				String specific_item = scan.next();
+				int price_index = items.indexOf(specific_item) + specific_item.length();
+				String price_of_specific_item = items.substring(price_index, price_index + 5);
+				Scanner scan_price = new Scanner(price_of_specific_item);
+				double price = scan_price.nextDouble();
+				double item_tot_price = num_of_specific_item * price;
+				cust_total_price += item_tot_price;
+				
+			}
+			System.out.println(cust_total_price);
 		}
 		
-		System.out.println(items);
 		
 	}
 
