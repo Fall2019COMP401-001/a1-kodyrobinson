@@ -20,7 +20,7 @@ public class A1Adept {
 			String item_name = scan.next();
 			double item_price = scan.nextDouble();
 			items = append(items, item_name);
-			items = append(items, String.format("%.2f", item_price));
+			items = append(items, String.format("%.3f", item_price));
 		}
 		int num_of_customers = scan.nextInt();
 				
