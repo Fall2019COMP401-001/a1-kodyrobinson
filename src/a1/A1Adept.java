@@ -24,12 +24,17 @@ public class A1Adept {
 		
 		String cust_names_and_totals = "";
 		
+		String list_of_total_prices = "";
+		
+		double avg = 0.0;
+		
 		for (int i = 0; i < num_of_customers; i++) {
 			String specific_cust_first = scan.next();
 			String specific_cust_last = scan.next();
 			cust_names_and_totals = cust_names_and_totals + specific_cust_first + " " + specific_cust_last + " ";
 			int num_of_items = scan.nextInt();
 			double cust_total_price = 0.0;
+			
 			for (int j = 0; j < num_of_items; j++) {
 				int num_of_specific_item = scan.nextInt();
 				String specific_item = scan.next();
@@ -41,9 +46,54 @@ public class A1Adept {
 				cust_total_price += item_tot_price;
 				
 			}
-			System.out.println(cust_total_price);
+			list_of_total_prices = list_of_total_prices + String.format("%.2f", cust_total_price) + " ";
+			
 		}
 		
+		Scanner scan_list = new Scanner(list_of_total_prices);
+		
+		int price1_index = 1;
+		int price2_index = 2;
+		
+		double price1 = scan_list.nextDouble();
+		double price2 = scan_list.nextDouble();
+		for (int i = 0; i < num_of_customers-2; i++) {
+			
+			if (price1 > price2) {
+				price2 = scan_list.nextDouble();
+				if (price2_index > price1_index) {
+					price2_index += 1;
+				} else {
+					price2_index += 2;
+				}
+			} else {
+				price1 = scan_list.nextDouble();
+				if (price1_index > price2_index) {
+					price1_index += 1;
+				} else {
+					price1_index += 2;
+				}
+				
+			}
+		
+		}
+		int max_index = 0;
+		if (price1_index > price2_index) {
+			max_index = price1_index;
+		} else {
+			max_index = price2_index;
+		}
+		double max_price = 0.0;
+		Scanner scan_price_list = new Scanner(list_of_total_prices);
+		for (int i = 0; i < max_index; i++) {
+			max_price = scan_price_list.nextDouble();
+		}
+		
+		System.out.println(max_price);
+		
+		
+		
+		avg /= num_of_customers;
 		
 	}
 
