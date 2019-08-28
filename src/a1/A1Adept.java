@@ -28,7 +28,7 @@ public class A1Adept {
 		// these strings will need to become arrays
 		String[] cust_names_and_totals = {};
 		
-		String[] list_of_total_prices = {};
+		double[] list_of_total_prices = {};
 		
 		double avg = 0.0;
 		
@@ -58,18 +58,37 @@ public class A1Adept {
 				cust_total_price += item_tot_price;
 				
 			}
+			avg += cust_total_price;
 			cust_names_and_totals = append(cust_names_and_totals, String.format("%.2f", cust_total_price));
-			list_of_total_prices = append(list_of_total_prices, String.format("%.2f", cust_total_price));
+			list_of_total_prices = doubleappend(list_of_total_prices, cust_total_price);
 			
 		}
-		System.out.println(Arrays.toString(items));
-		System.out.println(Arrays.toString(cust_names_and_totals));
-		System.out.println(Arrays.toString(list_of_total_prices));
-		// delete these scanners and heavily review the following code
 		
-	
+		
+		
+		
+		// Now create the method to find the max, min, average, and names
 		
 		avg /= num_of_customers;
+		
+		int max_ind = max(list_of_total_prices);
+		int min_ind = min(list_of_total_prices);
+		double max_val = list_of_total_prices[max_ind];
+		double min_val = list_of_total_prices[min_ind];
+		int first_max_ind = 3 * max_ind;
+		int last_max_ind = first_max_ind + 1;
+		int first_min_ind = 3 * min_ind;
+		int last_min_ind = first_min_ind + 1;
+		String max_name = cust_names_and_totals[first_max_ind] + " " + cust_names_and_totals[last_max_ind];
+		String min_name = cust_names_and_totals[first_min_ind] + " " + cust_names_and_totals[last_min_ind];
+		
+		
+		
+		// Now put the output here
+		System.out.println("Biggest: " + max_name + " (" + String.format("%.2f", max_val) + ")");
+		System.out.println("Smallest: " + min_name + " (" + String.format("%.2f", min_val) + ")");
+		System.out.println("Average: " + String.format("%.2f", avg));
+		
 		
 	}
 	static String[] append(String[] a, String b) {
@@ -77,8 +96,28 @@ public class A1Adept {
 		temp[temp.length-1] = b;
 		return temp;
 	}
-
-	// 2 potential ideas: either create a string[] with all the pricing data or create one concatenated string containing
-	// all the items and their prices, then use substrings and indexat to retrieve the price given the name of the item
+	static double[] doubleappend(double[] a, double b) {
+		double[] temp = Arrays.copyOf(a, a.length+1);
+		temp[temp.length-1] = b;
+		return temp;
+	}
+	static int max(double[] a) {
+		int max_index = 0;
+		for (int i = 1; i < a.length; i++) {
+			if (a[i] > a[max_index]) {
+				max_index = i;
+			}
+		}
+		return max_index;
+	}
+	static int min(double[] a) {
+		int min_index = 0;
+		for (int i = 1; i < a.length; i++) {
+			if (a[i] < a[min_index]) {
+				min_index = i;
+			}
+		}
+		return min_index;
+	}
 
 }
