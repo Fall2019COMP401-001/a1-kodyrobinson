@@ -6,6 +6,7 @@ public class A1Novice {
 
 	public static void main(String[] args) {
 		
+		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 
 		// Your code follows here.
@@ -26,6 +27,7 @@ public class A1Novice {
 			for(int j = 0; j < num_of_items; j++) {
 				int num_of_specific_item = scan.nextInt();
 				// Specific item name is not relevant for the output of the program
+				@SuppressWarnings("unused")
 				String specific_item_name = scan.next();
 				double specific_item_ind_price = scan.nextDouble();
 				double specific_item_tot_price = specific_item_ind_price * num_of_specific_item;

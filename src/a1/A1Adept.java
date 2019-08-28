@@ -7,13 +7,14 @@ public class A1Adept {
 
 	public static void main(String[] args) {
 		
+		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 
 		// Your code follows here.
 		int num_of_store_items = scan.nextInt();
 		
 		// Create an array of strings to store all info that must be referenced later
-		String[] items;
+		String[] items = {};
 		// Insert a for loop to iterate through all the items, storing the names as strings and their prices
 		for (int i = 0; i < num_of_store_items; i++) {
 			String item_name = scan.next();
@@ -25,9 +26,9 @@ public class A1Adept {
 				
 		
 		// these strings will need to become arrays
-		String[] cust_names_and_totals;
+		String[] cust_names_and_totals = {};
 		
-		String[] list_of_total_prices;
+		String[] list_of_total_prices = {};
 		
 		double avg = 0.0;
 		
@@ -50,6 +51,7 @@ public class A1Adept {
 				}
 				int price_index = k + 1;
 				String price_of_specific_item = items[price_index];
+				@SuppressWarnings("resource")
 				Scanner scan_price = new Scanner(price_of_specific_item);
 				double price = scan_price.nextDouble();
 				double item_tot_price = num_of_specific_item * price;
@@ -65,48 +67,7 @@ public class A1Adept {
 		System.out.println(list_of_total_prices);
 		// delete these scanners and heavily review the following code
 		
-		Scanner scan_list = new Scanner(list_of_total_prices);
-		
-		int price1_index = 1;
-		int price2_index = 2;
-		
-		double price1 = scan_list.nextDouble();
-		double price2 = scan_list.nextDouble();
-		for (int i = 0; i < num_of_customers-2; i++) {
-			
-			if (price1 > price2) {
-				price2 = scan_list.nextDouble();
-				if (price2_index > price1_index) {
-					price2_index += 1;
-				} else {
-					price2_index += 2;
-				}
-			} else {
-				price1 = scan_list.nextDouble();
-				if (price1_index > price2_index) {
-					price1_index += 1;
-				} else {
-					price1_index += 2;
-				}
-				
-			}
-		
-		}
-		int max_index = 0;
-		if (price1_index > price2_index) {
-			max_index = price1_index;
-		} else {
-			max_index = price2_index;
-		}
-		double max_price = 0.0;
-		Scanner scan_price_list = new Scanner(list_of_total_prices);
-		for (int i = 0; i < max_index; i++) {
-			max_price = scan_price_list.nextDouble();
-		}
-		
-		
-		
-		
+	
 		
 		avg /= num_of_customers;
 		
