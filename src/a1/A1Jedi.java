@@ -41,7 +41,7 @@ public class A1Jedi {
 		}
 		for (int i = 0; i < items.length; i+=3) {
 			if (items[i].equals("0")) {
-				System.out.println("No customers bought " + items[i+1]);
+				System.out.println("No customers bought " + items[i+2]);
 			} else {
 				System.out.println(items[i] + " customers bought " + items[i+1] + " " + items[i+2]);
 			}
