@@ -34,7 +34,7 @@ public class A1Jedi {
 					k += 1;
 				}
 				int num_customers = Integer.parseInt(items[k-2]);
-				if (!(specific_cust_items.contains(next_item))) {
+				if (specific_cust_items.contains(next_item)) {
 					num_customers -= 1;
 				}
 				num_customers += 1;
