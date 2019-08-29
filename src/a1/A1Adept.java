@@ -15,7 +15,7 @@ public class A1Adept {
 		
 		// Create an array of strings to store all info that must be referenced later
 		String[] items = {};
-		// Insert a for loop to iterate through all the items, storing the names as strings and their prices
+		// For loop to iterate through all the items, storing the names as strings and their prices
 		for (int i = 0; i < num_of_store_items; i++) {
 			String item_name = scan.next();
 			double item_price = scan.nextDouble();
@@ -25,14 +25,14 @@ public class A1Adept {
 		int num_of_customers = scan.nextInt();
 				
 		
-		// these strings will need to become arrays
+		// Arrays used to store information from all customers to be referenced later
 		String[] cust_names_and_totals = {};
 		
 		double[] list_of_total_prices = {};
 		
 		double avg = 0.0;
 		
-		// iteration through the input. leave this but change it up to work with arrays instead of strings
+		// iteration through the input, specifically through all the customers
 		
 		for (int i = 0; i < num_of_customers; i++) {
 			String specific_cust_first = scan.next();
@@ -41,11 +41,12 @@ public class A1Adept {
 			cust_names_and_totals = append(cust_names_and_totals, specific_cust_last);
 			int num_of_items = scan.nextInt();
 			double cust_total_price = 0.0;
-			
+			// iteration through all the items of a specific customer
 			for (int j = 0; j < num_of_items; j++) {
 				int num_of_specific_item = scan.nextInt();
 				String specific_item = scan.next();
 				int k = 0;
+				// checking the price of the specified item by looking into the previously created array of item prices
 				while (!(items[k].contentEquals(specific_item))) {
 					k += 1;
 				}
@@ -64,13 +65,9 @@ public class A1Adept {
 			
 		}
 		
-		
-		
-		
-		// Now create the method to find the max, min, average, and names
-		
 		avg /= num_of_customers;
 		
+		// setting values to variables in order to print them more efficiently
 		int max_ind = max(list_of_total_prices);
 		int min_ind = min(list_of_total_prices);
 		double max_val = list_of_total_prices[max_ind];
@@ -91,16 +88,19 @@ public class A1Adept {
 		
 		
 	}
+	// method to append to a string array
 	static String[] append(String[] a, String b) {
 		String[] temp = Arrays.copyOf(a, a.length+1);
 		temp[temp.length-1] = b;
 		return temp;
 	}
+	// method to append to a double array
 	static double[] doubleappend(double[] a, double b) {
 		double[] temp = Arrays.copyOf(a, a.length+1);
 		temp[temp.length-1] = b;
 		return temp;
 	}
+	// method to find the max of a double array
 	static int max(double[] a) {
 		int max_index = 0;
 		for (int i = 1; i < a.length; i++) {
@@ -110,6 +110,7 @@ public class A1Adept {
 		}
 		return max_index;
 	}
+	// method to find the min of a double array
 	static int min(double[] a) {
 		int min_index = 0;
 		for (int i = 1; i < a.length; i++) {

@@ -13,7 +13,7 @@ public class A1Novice {
 		
 		int num_of_customers = scan.nextInt();
 		
-		// Insert a for loop so this iterates for each customer
+		// For loop iterates through each customer and assigns their info to a string
 		for(int i = 0; i < num_of_customers; i++) {
 			String customer_first_name = scan.next();
 			char customer_first_initial = customer_first_name.charAt(0);
@@ -23,7 +23,8 @@ public class A1Novice {
 			// This double will compile the prices of all the items purchased by an individual customers
 			double specific_cust_tot_price = 0.0;
 		
-			// Insert a for loop to iterate through each item, but keep a constant price double for 
+			// For loop iterates for each item for a specified customer, adding the price of the item to the 
+			// customer's total price double
 			for(int j = 0; j < num_of_items; j++) {
 				int num_of_specific_item = scan.nextInt();
 				// Specific item name is not relevant for the output of the program
