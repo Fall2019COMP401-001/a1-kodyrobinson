@@ -12,7 +12,7 @@ public class A1Jedi {
 
 		// Your code follows here.
 		int num_of_items = scan.nextInt();
-		String[] items = null;
+		String[] items = {};
 		for (int i = 0; i < num_of_items; i++) {
 			items = append(items, "0");
 			items = append(items, "0");
@@ -39,8 +39,13 @@ public class A1Jedi {
 				items[k-1] = String.format("%d", specific_item_total);
 			}
 		}
-		String array_print = Arrays.toString(items);
-		System.out.println(array_print);
+		for (int i = 0; i < items.length; i+=3) {
+			if (items[i].equals("0")) {
+				System.out.println("No customers bought " + items);
+			} else {
+				System.out.println(items[i] + " customers bought " + items[i+1] + " " + items[i+2]);
+			}
+		}
 	}
 	static String[] append(String[] a, String b) {
 		String[] temp = Arrays.copyOf(a, a.length+1);
