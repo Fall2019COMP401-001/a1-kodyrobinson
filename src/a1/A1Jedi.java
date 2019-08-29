@@ -39,7 +39,8 @@ public class A1Jedi {
 				items[k-1] = String.format("%d", specific_item_total);
 			}
 		}
-		System.out.println(Arrays.toString(items));
+		String array_print = Arrays.toString(items);
+		System.out.println(array_print);
 	}
 	static String[] append(String[] a, String b) {
 		String[] temp = Arrays.copyOf(a, a.length+1);
