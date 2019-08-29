@@ -28,7 +28,6 @@ public class A1Jedi {
 			for (int j = 0; j < num_of_cust_items; j++) {
 				int num_of_specific_item = scan.nextInt();
 				String next_item = scan.next();
-				specific_cust_items += next_item;
 				int k = 0;
 				while (!(items[k].equals(next_item))) {
 					k += 1;
@@ -37,6 +36,7 @@ public class A1Jedi {
 				if (specific_cust_items.contains(next_item)) {
 					num_customers -= 1;
 				}
+				specific_cust_items += next_item;
 				num_customers += 1;
 				items[k-2] = String.format("%d", num_customers);
 				int specific_item_total = Integer.parseInt(items[k-1]);
